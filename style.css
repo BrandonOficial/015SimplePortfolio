@@ -122,5 +122,218 @@ button {
 }
 
 .profile_wrapper .profile {
+    display: flex;
+    gap: 10px;
+}
+.profile_wrapper .profile .hero-image {
+    width: 300px;
+    height: 400px;
+}
+.profile_wrapper .profile .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+}
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 80%;
+}
+.hero-content .name, .place {
+    width: 100%;
+    padding: 8px 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.place {
+    align-items: flex-start;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
 
+.place::after {
+    content: ''; /* Adicionando conteúdo vazio para :after funcionar */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(18, 17, 17, 0) 0%, #121111 30%);
+    z-index: -1;
+}
+
+.place img {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Garante que a imagem preencha o contêiner */
+    z-index: -1;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 5px 30px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+.social i {
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 26px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: 0.6s;
+
+    &:hover {
+        background-color: #fff;
+        color: purple;
+    }
+}
+.bottom_container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.portfolio {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.portfolio_title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.projects {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+}
+.projects .project {
+    position: relative;
+    width: 90%;
+    border-radius: 18px;
+}
+.projects .project::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: 0.6s;
+    opacity: 0;
+}
+.projects .project::before{
+    position: absolute;
+    top: 45%;
+    left: 35%;
+    content: 'See More';
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    color: #fff;
+    z-index: 1;
+    transition: 0.6s;
+    opacity: 0;
+}
+.projects .project:hover::after, .projects .project:hover::before {
+    opacity: 1;
+}
+.projects .project img {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+}
+.about {
+    width: 50%;   
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.about_title {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+.about p {
+    margin-top: 50px;
+    color: rgba(131, 131, 131, 0.8);
+}
+
+@media screen and (max-width: 1400px) {
+    .content .title {
+        flex-direction: column;
+    }
+    .content .title h1 {
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .top_container {
+        flex-direction: column-reverse;
+    }
+    .content {
+        width: 100%;
+    }
+    .content .title {
+        align-items: flex-start;
+    }
+    .profile_wrapper {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .bottom_container {
+        flex-direction: column;
+    }
+    .portfolio {
+        width: 100%;
+    }
+    .about {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .profile_wrapper .profile {
+        flex-direction: column;
+    }
+    .profile_wrapper .profile .hero-image {
+        width: 100%;
+    }
+    .skils .skil p span {
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 545px) {
+    .skils {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .content .title h1 {
+        font-size: 2rem;
+        line-height: 2.9rem;
+        margin-bottom: 30px;
+    }
+    .projects {
+        flex-direction: column;
+    }
+    .projects .project::before {
+        left: 40%;
+    }
 }
